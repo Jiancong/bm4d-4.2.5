@@ -37,8 +37,8 @@ parser.add_argument('input', help='input the denoise file path')
 
 args = parser.parse_args()
 
-#noisy_image = imageio.imread(args.input)
-noisy_image = loadmat(args.input)['cls']
+noisy_image = imageio.imread(args.input)
+#noisy_image = loadmat(args.input)['cls']
 
 # 如果你知道噪声的PSD，直接使用它
 # 如果你不知道PSD，你可能需要先估计它，或者使用一些默认值

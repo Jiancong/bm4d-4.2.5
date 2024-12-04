@@ -13,7 +13,11 @@ parser.add_argument('input', help='input tif file path')
 #img = cv2.imread('1210_Ti+Cr.tif', cv2.IMREAD_UNCHANGED)
 #img = cv2.imread('resize.tif', cv2.IMREAD_UNCHANGED)
 
+
 args = parser.parse_args()
+
+print("convert:parser input:" + args.input)
+
 #img = cv2.imread('EDSLayeredImage1.tiff2.tiff', cv2.IMREAD_UNCHANGED)
 img = cv2.imread(args.input, cv2.IMREAD_UNCHANGED)
 
