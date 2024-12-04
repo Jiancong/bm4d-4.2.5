@@ -3,6 +3,8 @@ from bm4d import bm4d
 from scipy.io import loadmat, savemat
 import matplotlib.pyplot as plt
 from experiment_funcs import get_psnr, official_get_psnr, calculate_ms_ssim
+import imageio
+import argparse
 
 
 def denoise_image(noisy_image, psd):
@@ -27,7 +29,15 @@ def denoise_image(noisy_image, psd):
 # 加载含噪声的原始图像（这里假设你已经有了一个含噪声的图像数组）
 #noisy_image = loadmat('1min_1210_Ti+Cr.mat')['cls']
 #noisy_image = loadmat('crop_image.mat')['crop']
-noisy_image = loadmat('EDSLayeredImage1.mat')['cls']
+
+parser = argparse.ArgumentParser(description='This is denoising demo.')
+
+parser.add_argument('input', help='input the denoise file path')
+
+args = parser.parse_args()
+
+#noisy_image = imageio.imread(args.input)
+noisy_image = loadmat(args.input)['cls']
 
 # 如果你知道噪声的PSD，直接使用它
 # 如果你不知道PSD，你可能需要先估计它，或者使用一些默认值
